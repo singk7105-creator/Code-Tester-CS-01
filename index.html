@@ -438,7 +438,6 @@
             const savedState = localStorage.getItem('pratham_wallet_state');
             if (savedState) {
                 Object.assign(STATE, JSON.parse(savedState));
-                // Ensure legacy IDs upgrade to new format if needed
                 if (!STATE.walletId || !STATE.walletId.endsWith('@prmwallet')) {
                     STATE.walletId = generateCustomWalletId();
                 }
@@ -577,7 +576,7 @@
             saveState();
         });
 
-        // Upgrades (Fixed minimum costs: 10,000 and 20,000)
+        // Strict Upgrades Cost Logic
         document.getElementById('buyClickUpgradeBtn').addEventListener('click', () => {
             if (STATE.balance >= STATE.clickUpgradeCost) {
                 STATE.balance -= STATE.clickUpgradeCost;
