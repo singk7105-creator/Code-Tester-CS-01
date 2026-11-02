@@ -272,7 +272,7 @@
                         <div class="tab-pane fade" id="pills-custom-id" role="tabpanel">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <span class="text-secondary small">Claim Custom `@pratham` Handle</span>
-                                <span class="badge bg-warning text-dark fw-bold">5,000 PRM</span>
+                                <span class="badge bg-warning text-dark fw-bold">25,000 PRM</span>
                             </div>
                             <form id="customIdForm">
                                 <div class="mb-3">
@@ -281,7 +281,7 @@
                                         <span class="input-group-text text-gold">@pratham</span>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-gold w-100" id="buyCustomIdBtn"><i class="bi bi-bag-check-fill me-1"></i> Buy Handle (5,000 PRM)</button>
+                                <button type="submit" class="btn btn-gold w-100" id="buyCustomIdBtn"><i class="bi bi-bag-check-fill me-1"></i> Buy Handle (25,000 PRM)</button>
                             </form>
                         </div>
                     </div>
@@ -295,7 +295,7 @@
                             <div class="p-3 border rounded-3 bg-black bg-opacity-30 border-secondary border-opacity-25">
                                 <div class="d-flex justify-content-between align-items-center mb-2">
                                     <span class="fw-bold small">Tap Multiplier</span>
-                                    <span id="clickUpgradeCost" class="badge bg-dark text-gold border border-warning">100 PRM</span>
+                                    <span id="clickUpgradeCost" class="badge bg-dark text-gold border border-warning">10,000 PRM</span>
                                 </div>
                                 <p class="text-secondary small mb-3">+1 PRM per tap boost.</p>
                                 <button class="btn btn-outline-gold btn-sm w-100" id="buyClickUpgradeBtn">Upgrade Multiplier</button>
@@ -305,7 +305,7 @@
                             <div class="p-3 border rounded-3 bg-black bg-opacity-30 border-secondary border-opacity-25">
                                 <div class="d-flex justify-content-between align-items-center mb-2">
                                     <span class="fw-bold small">Auto Node Bot</span>
-                                    <span id="autoUpgradeCost" class="badge bg-dark text-gold border border-warning">250 PRM</span>
+                                    <span id="autoUpgradeCost" class="badge bg-dark text-gold border border-warning">20,000 PRM</span>
                                 </div>
                                 <p class="text-secondary small mb-3">+5 PRM/sec passive mining.</p>
                                 <button class="btn btn-outline-gold btn-sm w-100" id="buyAutoUpgradeBtn">Deploy Auto Node</button>
@@ -351,8 +351,8 @@
             balance: 0,
             perClick: 1,
             autoRate: 0,
-            clickUpgradeCost: 100,
-            autoUpgradeCost: 250,
+            clickUpgradeCost: 10000,
+            autoUpgradeCost: 20000,
             walletId: '',
             isCustomId: false,
             logs: []
@@ -424,8 +424,8 @@
             document.getElementById('perClickDisplay').innerText = STATE.perClick;
             document.getElementById('autoRateDisplay').innerText = STATE.autoRate;
             document.getElementById('displayWalletId').innerText = STATE.walletId;
-            document.getElementById('clickUpgradeCost').innerText = STATE.clickUpgradeCost + ' PRM';
-            document.getElementById('autoUpgradeCost').innerText = STATE.autoUpgradeCost + ' PRM';
+            document.getElementById('clickUpgradeCost').innerText = STATE.clickUpgradeCost.toLocaleString() + ' PRM';
+            document.getElementById('autoUpgradeCost').innerText = STATE.autoUpgradeCost.toLocaleString() + ' PRM';
 
             if (STATE.isCustomId) {
                 document.getElementById('customHandleInput').disabled = true;
@@ -489,7 +489,7 @@
             if (STATE.balance >= STATE.clickUpgradeCost) {
                 STATE.balance -= STATE.clickUpgradeCost;
                 STATE.perClick += 1;
-                STATE.clickUpgradeCost = Math.floor(STATE.clickUpgradeCost * 1.8);
+                STATE.clickUpgradeCost = Math.floor(STATE.clickUpgradeCost * 1.5);
                 addLog('Upgrade', 'Tap Multiplier Enhanced', `-${STATE.clickUpgradeCost} PRM`);
                 showToast('Multiplier Upgraded!', 'success');
                 updateUI();
@@ -503,7 +503,7 @@
             if (STATE.balance >= STATE.autoUpgradeCost) {
                 STATE.balance -= STATE.autoUpgradeCost;
                 STATE.autoRate += 5;
-                STATE.autoUpgradeCost = Math.floor(STATE.autoUpgradeCost * 2);
+                STATE.autoUpgradeCost = Math.floor(STATE.autoUpgradeCost * 1.5);
                 addLog('Upgrade', 'Auto Node Bot Deployed', `-${STATE.autoUpgradeCost} PRM`);
                 showToast('Auto Node Activated!', 'success');
                 updateUI();
@@ -519,16 +519,16 @@
             const handle = document.getElementById('customHandleInput').value.trim().toLowerCase();
             const customId = `${handle}@pratham`;
 
-            if (STATE.balance < 5000) {
-                showToast('Need 5,000 PRM to buy handle!', 'error');
+            if (STATE.balance < 25000) {
+                showToast('Need 25,000 PRM to buy handle!', 'error');
                 return;
             }
 
-            STATE.balance -= 5000;
+            STATE.balance -= 25000;
             const oldId = STATE.walletId;
             STATE.walletId = customId;
             STATE.isCustomId = true;
-            addLog('Handle Claim', `Migrated from ${oldId} to ${customId}`, '-5000 PRM');
+            addLog('Handle Claim', `Migrated from ${oldId} to ${customId}`, '-25000 PRM');
             showToast(`Custom handle ${customId} claimed!`, 'success');
             updateUI();
             saveState();
