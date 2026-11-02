@@ -653,7 +653,7 @@
             saveState();
         });
 
-        // Real P2P Transfer using Render Server API
+        // Real P2P Transfer using Render Server API (with senderBalance sync)
         document.getElementById('transferForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const receiverId = document.getElementById('receiverIdInput').value.trim();
@@ -674,14 +674,15 @@
                 return;
             }
 
-            // API Request to Render Backend
+            // API Request to Render Backend with senderBalance
             fetch(`${BACKEND_URL}/api/transfer`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     senderId: STATE.walletId,
                     receiverId: receiverId,
-                    amount: amount
+                    amount: amount,
+                    senderBalance: STATE.balance
                 })
             })
             .then(res => res.json())
