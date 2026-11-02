@@ -10,6 +10,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Telegram Web App SDK -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
         :root {
             --midnight-navy: #101D30;
@@ -404,6 +406,8 @@
             logs: []
         };
 
+        const BACKEND_URL = 'https://pratham-coin.onrender.com';
+
         // Sound generator using Web Audio API
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         function playClickSound() {
@@ -434,23 +438,44 @@
             return `${alphaPart}-${numPart}@prmwallet`;
         }
 
+        // Initialize state using Telegram CloudStorage & Backend sync
         function initSession() {
-            const savedState = localStorage.getItem('pratham_wallet_state');
-            if (savedState) {
-                Object.assign(STATE, JSON.parse(savedState));
-                if (!STATE.walletId || !STATE.walletId.endsWith('@prmwallet')) {
-                    STATE.walletId = generateCustomWalletId();
-                }
+            if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.CloudStorage) {
+                window.Telegram.WebApp.CloudStorage.getItem('pratham_wallet_state', (err, value) => {
+                    if (!err && value) {
+                        try {
+                            Object.assign(STATE, JSON.parse(value));
+                        } catch (e) { console.error(e); }
+                    }
+                    finalizeInit();
+                });
             } else {
+                const savedState = localStorage.getItem('pratham_wallet_state');
+                if (savedState) {
+                    Object.assign(STATE, JSON.parse(savedState));
+                }
+                finalizeInit();
+            }
+        }
+
+        function finalizeInit() {
+            if (!STATE.walletId || !STATE.walletId.endsWith('@prmwallet')) {
                 STATE.walletId = generateCustomWalletId();
                 addLog('Genesis', `Assigned ID: ${STATE.walletId}`, '0 PRM');
-                saveState();
             }
             updateUI();
+            saveState();
         }
 
         function saveState() {
-            localStorage.setItem('pratham_wallet_state', JSON.stringify(STATE));
+            const stateString = JSON.stringify(STATE);
+            localStorage.setItem('pratham_wallet_state', stateString);
+
+            if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.CloudStorage) {
+                window.Telegram.WebApp.CloudStorage.setItem('pratham_wallet_state', stateString, (err, stored) => {
+                    if (err) console.error('Cloud storage save error', err);
+                });
+            }
         }
 
         function showToast(message, type = 'info') {
@@ -522,7 +547,9 @@
             saveState();
             playClickSound();
 
-            if (navigator.vibrate) {
+            if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.HapticFeedback) {
+                window.Telegram.WebApp.HapticFeedback.impactOccurred('medium');
+            } else if (navigator.vibrate) {
                 navigator.vibrate(35);
             }
 
@@ -576,7 +603,7 @@
             saveState();
         });
 
-        // Strict Upgrades Cost Logic
+        // Upgrades Cost Logic
         document.getElementById('buyClickUpgradeBtn').addEventListener('click', () => {
             if (STATE.balance >= STATE.clickUpgradeCost) {
                 STATE.balance -= STATE.clickUpgradeCost;
@@ -626,7 +653,7 @@
             saveState();
         });
 
-        // P2P Transfer
+        // Real P2P Transfer using Render Server API
         document.getElementById('transferForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const receiverId = document.getElementById('receiverIdInput').value.trim();
@@ -647,13 +674,33 @@
                 return;
             }
 
-            STATE.balance -= amount;
-            addLog('Transfer', `Sent to ${receiverId}`, `-${amount} PRM`);
-            showToast(`Transferred ${amount} PRM to ${receiverId}`, 'success');
-            
-            document.getElementById('transferForm').reset();
-            updateUI();
-            saveState();
+            // API Request to Render Backend
+            fetch(`${BACKEND_URL}/api/transfer`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    senderId: STATE.walletId,
+                    receiverId: receiverId,
+                    amount: amount
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    STATE.balance = data.senderBalance;
+                    addLog('Transfer', `Sent to ${receiverId}`, `-${amount} PRM`);
+                    showToast(`Transferred ${amount} PRM successfully!`, 'success');
+                    document.getElementById('transferForm').reset();
+                    updateUI();
+                    saveState();
+                } else {
+                    showToast(data.message || 'Transfer failed', 'error');
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                showToast('Server connection error!', 'error');
+            });
         });
 
         // Passive Generation Loop
