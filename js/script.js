@@ -1,35 +1,35 @@
-const express = require('express');
-const cors = require('cors');
-const app = express();
+document.addEventListener("DOMContentLoaded", () => {
+    const galleryContainer = document.getElementById("galleryContainer");
 
-app.use(express.json());
-app.use(cors());
+    // JSON file se data fetch karna
+    fetch("data/projects.json")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then(data => {
+            galleryContainer.innerHTML = ""; // Container clear karein
+            
+            data.forEach(item => {
+                // Har project ke liye HTML element banana
+                const galleryItem = document.createElement("div");
+                galleryItem.className = "gallery-item";
 
-let userBalances = {}; 
+                galleryItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}">
+                    <div class="gallery-overlay">
+                        <h3>${item.title}</h3>
+                        <p>${item.description}</p>
+                    </div>
+                `;
 
-app.get('/api/balance/:walletId', (req, res) => {
-    const { walletId } = req.params;
-    const balance = userBalances[walletId] || 0;
-    res.json({ balance });
+                galleryContainer.appendChild(galleryItem);
+            });
+        })
+        .catch(error => {
+            console.error("Error loading projects data:", error);
+            galleryContainer.innerHTML = `<p style="text-align: center; color: #ff5252;">Failed to load projects. Please try again later.</p>`;
+        });
 });
-
-app.post('/api/transfer', (req, res) => {
-    const { senderId, receiverId, amount, senderBalance } = req.body;
-    
-    // Agar server ke paas balance nahi hai, toh frontend se mila hua balance set kar do
-    if (userBalances[senderId] === undefined) {
-        userBalances[senderId] = senderBalance || 0;
-    }
-
-    if (userBalances[senderId] < amount) {
-        return res.status(400).json({ success: false, message: 'Insufficient balance!' });
-    }
-
-    userBalances[senderId] -= amount;
-    userBalances[receiverId] = (userBalances[receiverId] || 0) + amount;
-
-    res.json({ success: true, message: 'Transfer successful', senderBalance: userBalances[senderId] });
-});
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`PRM Free Server running on port ${PORT}`));
