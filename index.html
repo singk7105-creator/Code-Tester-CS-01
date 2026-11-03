@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shubham Digital Studio - Photography & Videography</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Shubham Digital Studio | Photography & Videography</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Header & Navigation -->
     <header>
-        <div class="logo">Shubham Digital Studio</div>
+        <div class="logo">Shubham <span>Digital Studio</span></div>
         <nav>
             <a href="index.html" class="active">Home</a>
             <a href="about.html">About</a>
@@ -18,20 +17,29 @@
         </nav>
     </header>
 
-    <!-- Main Gallery Section -->
     <main class="container">
-        <h1 class="section-title">Our Featured Projects</h1>
+        <h1 class="section-title">Our Photography & Videography Showcase</h1>
+        <p class="section-subtitle">Hover over any project image to read details</p>
+
+        <!-- Category Filters -->
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All Work</button>
+            <button class="filter-btn" data-filter="wedding">Weddings</button>
+            <button class="filter-btn" data-filter="prewedding">Pre-Weddings</button>
+            <button class="filter-btn" data-filter="cinematic">Cinematic Shoot</button>
+            <button class="filter-btn" data-filter="commercial">Commercial</button>
+        </div>
+
+        <!-- Dynamic JSON Loaded Gallery Grid -->
         <div class="gallery-grid" id="galleryContainer">
-            <!-- JavaScript data/projects.json se yahan cards load karega -->
+            <!-- JavaScript data yahan automatically generate karega -->
         </div>
     </main>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 Shubham Digital Studio. All rights reserved.</p>
     </footer>
 
-    <!-- Main JavaScript File -->
-    <script src="assets/js/main.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
