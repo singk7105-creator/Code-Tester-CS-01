@@ -1,23 +1,44 @@
 [
   {
     "id": 1,
-    "title": "Royal Wedding Cinematic",
-    "category": "Wedding",
-    "image": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80",
-    "description": "Destination wedding shoot with traditional drone coverage and cinematic highlights."
+    "title": "Royal Heritage Wedding",
+    "category": "wedding",
+    "image": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80",
+    "description": "Destination wedding shoot with traditional drone coverage, cinematic highlight film, and candid rituals photography."
   },
   {
     "id": 2,
     "title": "Golden Hour Pre-Wedding",
-    "category": "Pre-Wedding",
-    "image": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80",
-    "description": "Romantic couple photoshoot captured during sunset at open sand dunes."
+    "category": "prewedding",
+    "image": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1000&q=80",
+    "description": "Romantic couple photoshoot captured during golden sunset at open desert dunes with custom color grading."
   },
   {
     "id": 3,
-    "title": "Traditional Baby Shower",
-    "category": "Event",
-    "image": "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80",
-    "description": "Candid moments and ritual coverage captured with natural lighting."
+    "title": "Commercial Brand Portrait",
+    "category": "commercial",
+    "image": "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=80",
+    "description": "High-fashion model portfolio shoot using studio strobe setups and dramatic shadow lighting techniques."
+  },
+  {
+    "id": 4,
+    "title": "Grand Reception Highlights",
+    "category": "wedding",
+    "image": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1000&q=80",
+    "description": "Night reception function covered with 4K slow-motion camera rigs and dynamic multi-angle audio sync."
+  },
+  {
+    "id": 5,
+    "title": "Cinematic Teaser Shoot",
+    "category": "cinematic",
+    "image": "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1000&q=80",
+    "description": "Full HD landscape and artistic video shoot for luxury events and wedding teasers."
+  },
+  {
+    "id": 6,
+    "title": "Monsoon Couple Story",
+    "category": "prewedding",
+    "image": "https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1000&q=80",
+    "description": "Outdoor rain portrait sequence captured with high-speed lenses and natural backlight glow."
   }
 ]
