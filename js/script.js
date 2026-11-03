@@ -1,66 +1,166 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const galleryContainer = document.getElementById("galleryContainer");
-    const filterButtons = document.querySelectorAll(".filter-btn");
 
-    if (!galleryContainer) return;
+/* =========================================
+   SHUBHAM DIGITAL STUDIO
+   MAIN JAVASCRIPT
+========================================= */
 
-    let allProjects = [];
 
-    // Fetch dynamic project data from JSON
-    fetch("data/projects.json")
-        .then(response => {
-            if (!response.ok) throw new Error("Unable to load project data.");
-            return response.json();
-        })
-        .then(data => {
-            allProjects = data;
-            renderGallery(allProjects);
-        })
-        .catch(error => {
-            console.error("Error loading JSON data:", error);
-            galleryContainer.innerHTML = `<p style="text-align:center; color:#ff5252; grid-column: 1/-1;">Project data loading failed. Please check network connection.</p>`;
+/* MOBILE NAVIGATION */
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+
+if (menuToggle && navLinks) {
+
+    menuToggle.addEventListener("click", function () {
+
+        navLinks.classList.toggle("show");
+
+        const isOpen = navLinks.classList.contains("show");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            isOpen
+        );
+
+        menuToggle.innerHTML = isOpen ? "✕" : "☰";
+
+    });
+
+
+    // CLOSE MENU AFTER CLICKING A LINK
+
+    navLinks.querySelectorAll("a").forEach(link => {
+
+        link.addEventListener("click", function () {
+
+            navLinks.classList.remove("show");
+
+            menuToggle.innerHTML = "☰";
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
         });
 
-    // Render cards to gallery
-    function renderGallery(projects) {
-        galleryContainer.innerHTML = "";
+    });
 
-        if (projects.length === 0) {
-            galleryContainer.innerHTML = `<p style="text-align:center; color:#c5c6c7; grid-column: 1/-1;">No projects found in this category.</p>`;
-            return;
+
+    // CLOSE MENU WHEN CLICKING OUTSIDE
+
+    document.addEventListener("click", function (event) {
+
+        const clickedInsideMenu =
+            navLinks.contains(event.target);
+
+        const clickedToggle =
+            menuToggle.contains(event.target);
+
+        if (!clickedInsideMenu && !clickedToggle) {
+
+            navLinks.classList.remove("show");
+
+            menuToggle.innerHTML = "☰";
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
         }
 
-        projects.forEach(item => {
-            const card = document.createElement("div");
-            card.className = "gallery-item";
-
-            card.innerHTML = `
-                <img src="${item.image}" alt="${item.title}" loading="lazy">
-                <div class="gallery-overlay">
-                    <span class="tag">${item.category}</span>
-                    <h3>${item.title}</h3>
-                    <p>${item.description}</p>
-                </div>
-            `;
-
-            galleryContainer.appendChild(card);
-        });
-    }
-
-    // Category Filtering Feature
-    filterButtons.forEach(btn => {
-        btn.addEventListener("click", () => {
-            filterButtons.forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-
-            const filterValue = btn.getAttribute("data-filter");
-
-            if (filterValue === "all") {
-                renderGallery(allProjects);
-            } else {
-                const filtered = allProjects.filter(p => p.category === filterValue);
-                renderGallery(filtered);
-            }
-        });
     });
+
+}
+
+
+
+/* AUTOMATIC COPYRIGHT YEAR */
+
+const yearElement = document.getElementById("year");
+
+if (yearElement) {
+
+    yearElement.textContent = new Date().getFullYear();
+
+}
+
+
+
+/* CONTACT FORM - WHATSAPP */
+
+const bookingForm = document.getElementById("bookingForm");
+
+if (bookingForm) {
+
+    bookingForm.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        const formData = new FormData(bookingForm);
+
+        const name = formData.get("name");
+        const phone = formData.get("phone");
+        const service = formData.get("service");
+        const details = formData.get("date");
+
+        
+        // REPLACE WITH YOUR WHATSAPP NUMBER
+
+        const whatsappNumber = "91XXXXXXXXXX";
+
+
+        const message =
+`Hello Shubham Digital Studio!
+
+I would like to enquire about your services.
+
+Name: ${name}
+
+Phone: ${phone}
+
+Service: ${service}
+
+Event Details: ${details || "Not provided"}
+
+Please share your availability and packages.
+
+Thank you.`;
+
+
+        const whatsappURL =
+            "https://wa.me/" +
+            whatsappNumber +
+            "?text=" +
+            encodeURIComponent(message);
+
+
+        window.open(
+            whatsappURL,
+            "_blank",
+            "noopener,noreferrer"
+        );
+
+    });
+
+}
+
+
+
+/* IMAGE LOADING SUPPORT */
+
+document.querySelectorAll("img").forEach(image => {
+
+    image.loading = "lazy";
+
 });
+
+
+/* CONSOLE BRAND MESSAGE */
+
+console.log(
+    "Shubham Digital Studio | Capturing Moments, Creating Memories."
+);
