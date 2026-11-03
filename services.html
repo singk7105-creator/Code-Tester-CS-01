@@ -1,0 +1,444 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Our Services | Shubham Digital Studio</title>
+
+  <meta name="description" content="Explore photography and videography services by Shubham Digital Studio. Wedding, pre-wedding, portraits and cinematic films.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .services-hero {
+      background: #171717;
+      color: #fff;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .services-hero .section-label {
+      color: #A68A64;
+    }
+
+    .services-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(38px, 6vw, 65px);
+      font-weight: 500;
+      margin: 18px 0;
+    }
+
+    .services-hero p {
+      max-width: 650px;
+      margin: auto;
+      color: #D0CEC9;
+      line-height: 1.8;
+    }
+
+    .services-main {
+      padding: 90px 20px;
+      background: #F7F6F2;
+    }
+
+    .services-heading {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .services-heading span {
+      color: #A68A64;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .services-heading h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 4vw, 43px);
+      font-weight: 500;
+      color: #171717;
+      margin-top: 12px;
+    }
+
+    .services-grid {
+      max-width: 1150px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .service-card {
+      background: #fff;
+      border: 1px solid #EAE7E0;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.07);
+    }
+
+    .service-image {
+      height: 245px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .service-content {
+      padding: 27px;
+    }
+
+    .service-number {
+      color: #A68A64;
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+
+    .service-content h3 {
+      font-family: 'Playfair Display', serif;
+      color: #171717;
+      font-size: 24px;
+      font-weight: 500;
+      margin: 13px 0;
+    }
+
+    .service-content p {
+      color: #85837F;
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .service-content a {
+      color: #A68A64;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .service-note {
+      background: #EAE7E0;
+      padding: 75px 20px;
+      text-align: center;
+    }
+
+    .service-note h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(29px, 4vw, 42px);
+      font-weight: 500;
+      color: #171717;
+      margin-bottom: 15px;
+    }
+
+    .service-note p {
+      color: #85837F;
+      max-width: 650px;
+      margin: auto auto 25px;
+      line-height: 1.8;
+    }
+
+    .service-note a {
+      display: inline-block;
+      background: #171717;
+      color: #fff;
+      padding: 14px 30px;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 900px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-main {
+        padding: 65px 18px;
+      }
+
+      .service-image {
+        height: 230px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="nav-container">
+
+      <a href="index.html" class="logo">
+        <span class="logo-mark">S</span>
+        <span>
+          <strong>SHUBHAM</strong>
+          <small>DIGITAL STUDIO</small>
+        </span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+        ☰
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- Hero -->
+  <section class="services-hero">
+
+    <div class="section-label">WHAT WE OFFER</div>
+
+    <h1>Our Creative Services</h1>
+
+    <p>
+      From beautiful celebrations to personal portraits,
+      we capture your special moments with creativity,
+      care and attention to every detail.
+    </p>
+
+  </section>
+
+
+  <!-- Services -->
+  <section class="services-main">
+
+    <div class="services-heading">
+      <span>OUR EXPERTISE</span>
+      <h2>Services We Provide</h2>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- Service 01 -->
+      <div class="service-card">
+
+        <div class="service-image"
+          style="background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85')">
+        </div>
+
+        <div class="service-content">
+          <div class="service-number">01 / PHOTOGRAPHY</div>
+          <h3>Wedding Photography</h3>
+
+          <p>
+            Beautifully capturing wedding rituals, emotions,
+            celebrations and unforgettable memories.
+          </p>
+
+          <a href="contact.html">BOOK A SESSION →</a>
+        </div>
+
+      </div>
+
+
+      <!-- Service 02 -->
+      <div class="service-card">
+
+        <div class="service-image"
+          style="background-image:url('https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=900&q=85')">
+        </div>
+
+        <div class="service-content">
+          <div class="service-number">02 / PHOTOGRAPHY</div>
+          <h3>Pre-Wedding Shoot</h3>
+
+          <p>
+            Creative and romantic pre-wedding photography
+            that tells your unique love story.
+          </p>
+
+          <a href="contact.html">BOOK A SESSION →</a>
+        </div>
+
+      </div>
+
+
+      <!-- Service 03 -->
+      <div class="service-card">
+
+        <div class="service-image"
+          style="background-image:url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=900&q=85')">
+        </div>
+
+        <div class="service-content">
+          <div class="service-number">03 / VIDEOGRAPHY</div>
+          <h3>Cinematic Films</h3>
+
+          <p>
+            Cinematic videos with creative storytelling,
+            beautiful visuals and memorable moments.
+          </p>
+
+          <a href="contact.html">BOOK A SESSION →</a>
+        </div>
+
+      </div>
+
+
+      <!-- Service 04 -->
+      <div class="service-card">
+
+        <div class="service-image"
+          style="background-image:url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=85')">
+        </div>
+
+        <div class="service-content">
+          <div class="service-number">04 / EVENTS</div>
+          <h3>Event Photography</h3>
+
+          <p>
+            From birthdays and engagements to family functions,
+            we preserve every special celebration.
+          </p>
+
+          <a href="contact.html">BOOK A SESSION →</a>
+        </div>
+
+      </div>
+
+
+      <!-- Service 05 -->
+      <div class="service-card">
+
+        <div class="service-image"
+          style="background-image:url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=85')">
+        </div>
+
+        <div class="service-content">
+          <div class="service-number">05 / PORTRAITS</div>
+          <h3>Portrait Photography</h3>
+
+          <p>
+            Personal, professional and creative portraits
+            that reflect your personality and style.
+          </p>
+
+          <a href="contact.html">BOOK A SESSION →</a>
+        </div>
+
+      </div>
+
+
+      <!-- Service 06 -->
+      <div class="service-card">
+
+        <div class="service-image"
+          style="background-image:url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=900&q=85')">
+        </div>
+
+        <div class="service-content">
+          <div class="service-number">06 / SPECIAL EVENTS</div>
+          <h3>Birthday & Celebrations</h3>
+
+          <p>
+            Special memories from birthdays, parties and
+            joyful family celebrations captured beautifully.
+          </p>
+
+          <a href="contact.html">BOOK A SESSION →</a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Contact CTA -->
+  <section class="service-note">
+
+    <h2>Have Something Special in Mind?</h2>
+
+    <p>
+      Every project is different. Tell us about your ideas
+      and let's create something memorable together.
+    </p>
+
+    <a href="contact.html">LET'S DISCUSS YOUR PROJECT</a>
+
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+
+    <div class="footer-container">
+
+      <div class="footer-column">
+
+        <a href="index.html" class="logo">
+          <span class="logo-mark">S</span>
+          <span>
+            <strong>SHUBHAM</strong>
+            <small>DIGITAL STUDIO</small>
+          </span>
+        </a>
+
+        <p>
+          Capturing moments, creating memories.
+          Every picture tells a story.
+        </p>
+
+      </div>
+
+      <div class="footer-column">
+
+        <h4>Quick Links</h4>
+
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Our Services</a>
+        <a href="gallery.html">Gallery</a>
+
+      </div>
+
+      <div class="footer-column">
+
+        <h4>Explore</h4>
+
+        <a href="contact.html">Contact Us</a>
+        <a href="contact.html">Book a Session</a>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Shubham Digital Studio. All Rights Reserved.</p>
+    </div>
+
+  </footer>
+
+
+  <script src="js/script.js"></script>
+
+</body>
+</html>
