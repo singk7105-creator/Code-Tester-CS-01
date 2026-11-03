@@ -1,2 +1,2 @@
-# pratham-coin
-Born in Bharat. Built for the World. Official web application for Pratham Coin (PRM).
+# testbycs-app-01
+Born in Bharat. Built for the World.
