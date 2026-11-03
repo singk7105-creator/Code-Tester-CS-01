@@ -1,50 +1,455 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Shubham Digital Studio</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>About Us | Shubham Digital Studio</title>
+
+  <meta name="description" content="Discover the story, vision and creative approach of Shubham Digital Studio.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .about-hero {
+      background: #171717;
+      color: #fff;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .about-hero .section-label {
+      color: #A68A64;
+      letter-spacing: 3px;
+    }
+
+    .about-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(38px, 6vw, 66px);
+      font-weight: 500;
+      margin: 18px 0;
+    }
+
+    .about-hero p {
+      color: #D0CEC9;
+      max-width: 650px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    .about-story {
+      padding: 90px 20px;
+      background: #F7F6F2;
+    }
+
+    .about-grid {
+      max-width: 1150px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .about-image {
+      min-height: 480px;
+      background:
+        url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1000&q=85')
+        center/cover;
+    }
+
+    .about-content h2,
+    .vision-section h2,
+    .why-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 4vw, 43px);
+      font-weight: 500;
+      color: #171717;
+      margin: 12px 0 22px;
+    }
+
+    .about-content p,
+    .vision-card p,
+    .why-card p {
+      color: #85837F;
+      line-height: 1.9;
+      font-size: 15px;
+    }
+
+    .about-tag {
+      color: #A68A64;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .vision-section {
+      padding: 90px 20px;
+      background: #EAE7E0;
+      text-align: center;
+    }
+
+    .vision-container {
+      max-width: 1100px;
+      margin: 45px auto 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      text-align: left;
+    }
+
+    .vision-card {
+      background: #F7F6F2;
+      padding: 40px;
+    }
+
+    .vision-card h3,
+    .why-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 25px;
+      font-weight: 500;
+      margin: 15px 0;
+      color: #171717;
+    }
+
+    .vision-number {
+      color: #A68A64;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    .why-section {
+      padding: 90px 20px;
+      background: #F7F6F2;
+      text-align: center;
+    }
+
+    .why-container {
+      max-width: 1100px;
+      margin: 45px auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      text-align: left;
+    }
+
+    .why-card {
+      padding: 30px;
+      border: 1px solid #EAE7E0;
+    }
+
+    .why-icon {
+      font-size: 25px;
+      color: #A68A64;
+    }
+
+    .about-cta {
+      background: #171717;
+      color: #fff;
+      text-align: center;
+      padding: 75px 20px;
+    }
+
+    .about-cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 5vw, 44px);
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+
+    .about-cta p {
+      color: #C6C3BD;
+      margin-bottom: 28px;
+    }
+
+    .about-cta a {
+      display: inline-block;
+      background: #A68A64;
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 30px;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 768px) {
+      .about-grid,
+      .vision-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .about-image {
+        min-height: 330px;
+      }
+
+      .why-container {
+        grid-template-columns: 1fr;
+      }
+
+      .about-story,
+      .vision-section,
+      .why-section {
+        padding: 65px 20px;
+      }
+
+      .vision-card {
+        padding: 28px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-    <header>
-        <div class="logo">Shubham <span>Digital Studio</span></div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html" class="active">About</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="nav-container">
 
-    <main class="container">
-        <h1 class="section-title">About Shubham Digital Studio</h1>
-        <p class="section-subtitle">Capturing Timeless Moments With Creative Vision</p>
+      <a href="index.html" class="logo">
+        <span class="logo-mark">S</span>
+        <span>
+          <strong>SHUBHAM</strong>
+          <small>DIGITAL STUDIO</small>
+        </span>
+      </a>
 
-        <div class="about-card">
-            <h2>Who We Are</h2>
-            <p>Shubham Digital Studio is a premier photography and videography production team specializing in high-end destination weddings, pre-wedding stories, commercial shoot setups, and event highlights. With years of experience and high-resolution camera gear, we turn your key memories into cinematic visuals.</p>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+        ☰
+      </button>
 
-            <div class="services-grid">
-                <div class="service-box">
-                    <h4>4K Cinematic Videography</h4>
-                    <p>Professional video highlights, drone coverage, and high-quality audio recording.</p>
-                </div>
-                <div class="service-box">
-                    <h4>Candid Photography</h4>
-                    <p>Natural expression capturing without awkward poses for authentic memories.</p>
-                </div>
-                <div class="service-box">
-                    <h4>Custom Editing & Album</h4>
-                    <p>Premium color grading, high-resolution retouches, and luxury photo frame printing.</p>
-                </div>
-            </div>
-        </div>
-    </main>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </nav>
 
-    <footer>
-        <p>&copy; 2026 Shubham Digital Studio. All rights reserved.</p>
-    </footer>
+    </div>
+  </header>
+
+
+  <!-- About Hero -->
+  <section class="about-hero">
+    <div class="about-tag">ABOUT OUR STUDIO</div>
+
+    <h1>Behind Every Picture,<br>A Beautiful Story.</h1>
+
+    <p>
+      We believe every moment has a story worth remembering.
+      At Shubham Digital Studio, we turn meaningful moments
+      into timeless memories through photography and films.
+    </p>
+  </section>
+
+
+  <!-- Our Story -->
+  <section class="about-story">
+
+    <div class="about-grid">
+
+      <div class="about-image"></div>
+
+      <div class="about-content">
+
+        <div class="about-tag">OUR STORY</div>
+
+        <h2>Creating Memories That Last Forever.</h2>
+
+        <p>
+          Shubham Digital Studio is built around a simple idea:
+          every moment deserves to be captured beautifully.
+        </p>
+
+        <p>
+          From wedding celebrations to personal portraits,
+          we focus on capturing genuine emotions, meaningful
+          details and the little moments that make every
+          story unique.
+        </p>
+
+        <p>
+          Our approach combines creativity, attention to detail
+          and a passion for visual storytelling to create
+          photographs and films that you can cherish for years.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Vision & Mission -->
+  <section class="vision-section">
+
+    <div class="about-tag">WHAT WE BELIEVE</div>
+
+    <h2>Our Vision & Mission</h2>
+
+    <div class="vision-container">
+
+      <div class="vision-card">
+
+        <div class="vision-number">01 / OUR VISION</div>
+
+        <h3>To Make Every Memory Timeless.</h3>
+
+        <p>
+          Our vision is to become a trusted creative studio
+          known for meaningful photography, cinematic visuals
+          and unforgettable storytelling.
+        </p>
+
+      </div>
+
+      <div class="vision-card">
+
+        <div class="vision-number">02 / OUR MISSION</div>
+
+        <h3>To Capture What Truly Matters.</h3>
+
+        <p>
+          Our mission is to deliver quality, creativity and
+          a comfortable experience while preserving every
+          special moment with care and dedication.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Why Choose Us -->
+  <section class="why-section">
+
+    <div class="about-tag">THE STUDIO DIFFERENCE</div>
+
+    <h2>Why Choose Us?</h2>
+
+    <div class="why-container">
+
+      <div class="why-card">
+
+        <div class="why-icon">✦</div>
+
+        <h3>Creative Approach</h3>
+
+        <p>
+          We look beyond ordinary frames and focus on
+          capturing moments with a fresh creative perspective.
+        </p>
+
+      </div>
+
+      <div class="why-card">
+
+        <div class="why-icon">✧</div>
+
+        <h3>Attention to Detail</h3>
+
+        <p>
+          Every expression, emotion and little detail matters.
+          We give every project the attention it deserves.
+        </p>
+
+      </div>
+
+      <div class="why-card">
+
+        <div class="why-icon">◇</div>
+
+        <h3>Quality & Care</h3>
+
+        <p>
+          From the first conversation to the final delivery,
+          we focus on quality and a smooth experience.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+  <section class="about-cta">
+
+    <h2>Let's Create Something Beautiful.</h2>
+
+    <p>
+      Have a special moment coming up? We'd love to be a part of it.
+    </p>
+
+    <a href="contact.html">GET IN TOUCH</a>
+
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+
+    <div class="footer-container">
+
+      <div class="footer-column">
+
+        <a href="index.html" class="logo">
+          <span class="logo-mark">S</span>
+          <span>
+            <strong>SHUBHAM</strong>
+            <small>DIGITAL STUDIO</small>
+          </span>
+        </a>
+
+        <p>
+          Capturing moments, creating memories.
+          Every picture tells a story.
+        </p>
+
+      </div>
+
+      <div class="footer-column">
+
+        <h4>Quick Links</h4>
+
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Our Services</a>
+        <a href="gallery.html">Gallery</a>
+
+      </div>
+
+      <div class="footer-column">
+
+        <h4>Explore</h4>
+
+        <a href="contact.html">Contact Us</a>
+        <a href="contact.html">Book a Session</a>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Shubham Digital Studio. All Rights Reserved.</p>
+    </div>
+
+  </footer>
+
+
+  <script src="js/script.js"></script>
 
 </body>
 </html>
