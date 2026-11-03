@@ -1,13 +1,23 @@
-{
-  "name": "pratham-coin-server",
-  "version": "1.0.0",
-  "description": "PRM Coin Free Backend Server",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
+[
+  {
+    "id": 1,
+    "title": "Royal Wedding Cinematic",
+    "category": "Wedding",
+    "image": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80",
+    "description": "Destination wedding shoot with traditional drone coverage and cinematic highlights."
   },
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.19.2"
+  {
+    "id": 2,
+    "title": "Golden Hour Pre-Wedding",
+    "category": "Pre-Wedding",
+    "image": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80",
+    "description": "Romantic couple photoshoot captured during sunset at open sand dunes."
+  },
+  {
+    "id": 3,
+    "title": "Traditional Baby Shower",
+    "category": "Event",
+    "image": "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80",
+    "description": "Candid moments and ritual coverage captured with natural lighting."
   }
-}
+]
