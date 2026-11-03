@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Shubham Digital Studio</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">Shubham <span>Digital Studio</span></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="active">Contact</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1 class="section-title">Book Your Booking Date</h1>
+        <p class="section-subtitle">Get in touch for wedding packages and availability</p>
+
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Studio Information</h3>
+                <div class="info-item">
+                    <strong>Studio Address:</strong>
+                    <p>Main Market Road, Near City Center</p>
+                </div>
+                <div class="info-item">
+                    <strong>Phone / WhatsApp:</strong>
+                    <p>+91 98765 43210</p>
+                </div>
+                <div class="info-item">
+                    <strong>Email:</strong>
+                    <p>contact@shubhamdigitalstudio.com</p>
+                </div>
+                <div class="info-item">
+                    <strong>Working Hours:</strong>
+                    <p>Monday - Saturday: 10:00 AM to 8:00 PM</p>
+                </div>
+            </div>
+
+            <div class="contact-form-container">
+                <h3>Send Us a Direct Inquiry</h3>
+                <form onsubmit="event.preventDefault(); alert('Inquiry Sent Successfully!');">
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input type="text" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" placeholder="Enter contact number" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Service Type</label>
+                        <select>
+                            <option>Wedding Shoot</option>
+                            <option>Pre-Wedding Shoot</option>
+                            <option>Cinematic Video</option>
+                            <option>Commercial Portfolio</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Message / Date Details</label>
+                        <textarea rows="4" placeholder="Tell us about event dates and location..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Shubham Digital Studio. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
