@@ -1,45 +1,410 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shubham Digital Studio | Photography & Videography</title>
-    <link rel="stylesheet" href="css/style.css">
+
+    <meta name="theme-color" content="#F7F6F2">
+    <meta name="description" content="Shubham Digital Studio - Professional Photography, Wedding Photography and Cinematic Videography.">
+
+    <title>Shubham Digital Studio | Photography & Films</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
 
-    <header>
-        <div class="logo">Shubham <span>Digital Studio</span></div>
-        <nav>
-            <a href="index.html" class="active">Home</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
+<!-- NAVBAR -->
 
-    <main class="container">
-        <h1 class="section-title">Our Photography & Videography Showcase</h1>
-        <p class="section-subtitle">Hover over any project image to read details</p>
+<header class="navbar">
 
-        <!-- Category Filters -->
-        <div class="filter-container">
-            <button class="filter-btn active" data-filter="all">All Work</button>
-            <button class="filter-btn" data-filter="wedding">Weddings</button>
-            <button class="filter-btn" data-filter="prewedding">Pre-Weddings</button>
-            <button class="filter-btn" data-filter="cinematic">Cinematic Shoot</button>
-            <button class="filter-btn" data-filter="commercial">Commercial</button>
+    <a href="index.html" class="logo">
+
+        <span class="logo-icon">S</span>
+
+        <span class="logo-text">
+            SHUBHAM
+            <small>DIGITAL STUDIO</small>
+        </span>
+
+    </a>
+
+    <button class="menu-toggle" id="menuToggle">
+        ☰
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+
+        <a href="index.html" class="active">Home</a>
+
+        <a href="about.html">About</a>
+
+        <a href="services.html">Services</a>
+
+        <a href="gallery.html">Gallery</a>
+
+        <a href="contact.html" class="nav-button">
+            Contact Us
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- HERO SECTION -->
+
+<section class="hero">
+
+    <div class="hero-image"></div>
+
+    <div class="hero-content">
+
+        <span class="hero-label">
+            PHOTOGRAPHY • VIDEOGRAPHY • CREATIVE
+        </span>
+
+        <h1>
+            Capturing Moments,<br>
+            <span>Creating Memories.</span>
+        </h1>
+
+        <p>
+            Every moment has a story.
+            We capture yours with creativity,
+            passion and perfection.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="gallery.html" class="btn-primary">
+                Explore Our Work →
+            </a>
+
+            <a href="contact.html" class="btn-secondary">
+                Book Your Session
+            </a>
+
         </div>
 
-        <!-- Dynamic JSON Loaded Gallery Grid -->
-        <div class="gallery-grid" id="galleryContainer">
-            <!-- JavaScript data yahan automatically generate karega -->
+    </div>
+
+    <div class="hero-bottom">
+        <span>SHUBHAM DIGITAL STUDIO</span>
+        <span>EST. WITH PASSION</span>
+    </div>
+
+</section>
+
+
+<!-- INTRODUCTION -->
+
+<section class="introduction section-container">
+
+    <div class="intro-left">
+
+        <span class="section-label">
+            WELCOME TO OUR STUDIO
+        </span>
+
+        <h2>
+            Your Moments.<br>
+            <span>Our Perspective.</span>
+        </h2>
+
+    </div>
+
+    <div class="intro-right">
+
+        <p>
+            We believe every photograph tells a story.
+            At Shubham Digital Studio, we transform
+            beautiful moments into timeless memories
+            through professional photography and
+            cinematic videography.
+        </p>
+
+        <a href="about.html" class="text-link">
+            Discover Our Story →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section class="services-section">
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    WHAT WE OFFER
+                </span>
+
+                <h2>
+                    Our Creative <span>Services</span>
+                </h2>
+
+            </div>
+
+            <a href="services.html" class="text-link">
+                View All Services →
+            </a>
+
         </div>
-    </main>
 
-    <footer>
-        <p>&copy; 2026 Shubham Digital Studio. All rights reserved.</p>
-    </footer>
 
-    <script src="js/script.js"></script>
+        <div class="services-grid">
+
+
+            <div class="service-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85"
+                    alt="Wedding Photography"
+                >
+
+                <div class="service-info">
+
+                    <span>01</span>
+
+                    <h3>Wedding Photography</h3>
+
+                    <p>
+                        Beautiful moments captured forever.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=900&q=85"
+                    alt="Cinematic Videography"
+                >
+
+                <div class="service-info">
+
+                    <span>02</span>
+
+                    <h3>Cinematic Films</h3>
+
+                    <p>
+                        Turning special moments into films.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=85"
+                    alt="Portrait Photography"
+                >
+
+                <div class="service-info">
+
+                    <span>03</span>
+
+                    <h3>Portrait Photography</h3>
+
+                    <p>
+                        Express yourself through our lens.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PORTFOLIO -->
+
+<section class="portfolio-section section-container">
+
+    <div class="portfolio-heading">
+
+        <span class="section-label">
+            OUR SELECTED WORK
+        </span>
+
+        <h2>
+            Stories Worth <span>Seeing.</span>
+        </h2>
+
+        <p>
+            A collection of moments, emotions
+            and memories captured through our lens.
+        </p>
+
+    </div>
+
+
+    <div class="portfolio-grid">
+
+        <img
+            src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=85"
+            alt="Wedding Moments"
+        >
+
+        <img
+            src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=900&q=85"
+            alt="Photography"
+        >
+
+        <img
+            src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=900&q=85"
+            alt="Professional Camera"
+        >
+
+    </div>
+
+    <div class="portfolio-action">
+
+        <a href="gallery.html" class="btn-outline">
+            View Full Gallery →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- CALL TO ACTION -->
+
+<section class="cta-section">
+
+    <div class="cta-content">
+
+        <span class="section-label">
+            LET'S CREATE SOMETHING BEAUTIFUL
+        </span>
+
+        <h2>
+            Let's Capture Your<br>
+            <span>Beautiful Story.</span>
+        </h2>
+
+        <p>
+            Your special moments deserve
+            to be remembered forever.
+        </p>
+
+        <a href="contact.html" class="btn-dark">
+            Get In Touch →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-brand">
+
+            <a href="index.html" class="logo">
+
+                <span class="logo-icon">S</span>
+
+                <span class="logo-text">
+                    SHUBHAM
+                    <small>DIGITAL STUDIO</small>
+                </span>
+
+            </a>
+
+            <p>
+                Capturing Moments.<br>
+                Creating Memories.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>Quick Links</h4>
+
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="gallery.html">Gallery</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>Our Services</h4>
+
+            <a href="services.html">Wedding Photography</a>
+            <a href="services.html">Cinematic Videography</a>
+            <a href="services.html">Pre-Wedding Shoot</a>
+            <a href="services.html">Event Photography</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>Contact</h4>
+
+            <a href="contact.html">Contact Us</a>
+            <a href="contact.html">Book a Session</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © <span id="year"></span>
+            Shubham Digital Studio.
+            All Rights Reserved.
+        </p>
+
+        <span>Designed with Creativity.</span>
+
+    </div>
+
+</footer>
+
+
+<!-- JAVASCRIPT -->
+
+<script src="script.js"></script>
+
 </body>
 </html>
